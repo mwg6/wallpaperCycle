@@ -1,7 +1,9 @@
 package psuedoRandom;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.io.File;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -9,14 +11,16 @@ public class gui {
 
 	public static void main(String[] args) {
 		//here we show a gui.
-		//createGui();
+		createGui();
 		
-		File a = new File("Users\\Public\\Pictures");
+		/*File a = new File("c:/users/public/pictures/sample pictures");
 		imgViewer b = new imgViewer();
 		b.getFiles(a);
+		List<Image> imgarray = b.getImages();
+		*/
 	}
 	public static void createGui(){
-		/* JFrame frame = new JFrame("Curated Wallpapers");
+		JFrame frame = new JFrame("Curated Wallpapers");
 	      //to the frame we add a content pane of beergui, situating it at the center
 	      frame.getContentPane().add(new paperGui(), BorderLayout.CENTER);
 	      //self evident
@@ -27,9 +31,7 @@ public class gui {
 	      frame.setLocationRelativeTo(null);
 	      //self evident
 	      frame.setVisible(true);
-	*/
-		File a = new File("Users\\Public\\Pictures");
-		imgViewer b = new imgViewer();
-		b.getFiles(a);
+	
+		
 	}
 }
