@@ -14,6 +14,7 @@ public class imgViewer {
 
 	List<Image> images = new ArrayList<Image>();
 	String[] extensions = new String[]{"jpg"};
+	int numFiles;
 	
 //	filter the files to ensure they are images
 	public FilenameFilter filter = new FilenameFilter(){
@@ -37,11 +38,12 @@ public class imgViewer {
 		
 		if(folder.isDirectory()){
 			System.out.println("Is directory");
+			numFiles =  folder.listFiles().length;
 			for(File f:folder.listFiles(filter)){
 				BufferedImage img = null;
 				try{
 					img = ImageIO.read(f);
-					System.out.println(f.getName());
+					
 					images.add(img);
 				}
 				catch(IOException e){
@@ -58,6 +60,12 @@ public class imgViewer {
 	
 	public List<Image> getImages(){
 		return images;
+	}
+	public String getImgNme(int i){
+		return images.get(i).
+	}
+	public int getFiles(){
+		return numFiles;
 	}
 
 }
