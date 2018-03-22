@@ -1,16 +1,17 @@
 package psuedoRandom;
 
 import java.awt.Image;
-import java.util.List;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
-public class imgViewer {
+public class imgViewer extends JPanel{
 
 	List<Image> images = new ArrayList<Image>();
 	String[] extensions = new String[]{"jpg"};
@@ -43,7 +44,7 @@ public class imgViewer {
 				BufferedImage img = null;
 				try{
 					img = ImageIO.read(f);
-					
+					System.out.println("in the viewer for loop");
 					images.add(img);
 				}
 				catch(IOException e){
@@ -61,8 +62,11 @@ public class imgViewer {
 	public List<Image> getImages(){
 		return images;
 	}
+	public Image getImg(int i){
+		return images.get(i);
+	}
 	public String getImgNme(int i){
-		return images.get(i).
+		return images.get(i).toString();
 	}
 	public int getFiles(){
 		return numFiles;

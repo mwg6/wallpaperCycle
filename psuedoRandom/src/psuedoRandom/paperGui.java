@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class paperGui extends JPanel {
 
-	imgViewer array = new imgViewer();
+	middlePanel array = new middlePanel();
 	topPanel topPanel = new topPanel();
 	bottomPanel bott = new bottomPanel();
 	
@@ -21,6 +21,8 @@ public class paperGui extends JPanel {
 		top.add(topPanel);
 		
 		JPanel middle = new JPanel();
+		middle.add(array);
+		/*
 		File a = new File("c:/users/public/pictures/sample pictures");
 		imgViewer b = new imgViewer();
 		b.getFiles(a);
@@ -28,7 +30,7 @@ public class paperGui extends JPanel {
 		for(Image imgname:imgarray){
 			middle.add(new JLabel(new ImageIcon(imgname)));
 		}
-		
+		*/
 		JPanel bottom = new JPanel();
 		bottom.add(bott);
 		
