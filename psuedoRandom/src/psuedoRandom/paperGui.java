@@ -1,13 +1,8 @@
 package psuedoRandom;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Image;
-import java.io.File;
-import java.util.List;
+import java.awt.Dimension;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class paperGui extends JPanel {
@@ -19,18 +14,12 @@ public class paperGui extends JPanel {
 	public paperGui(){
 		JPanel top = new JPanel();
 		top.add(topPanel);
+		top.setSize(10,10);
 		
 		JPanel middle = new JPanel();
 		middle.add(array);
-		/*
-		File a = new File("c:/users/public/pictures/sample pictures");
-		imgViewer b = new imgViewer();
-		b.getFiles(a);
-		List<Image> imgarray = b.getImages();
-		for(Image imgname:imgarray){
-			middle.add(new JLabel(new ImageIcon(imgname)));
-		}
-		*/
+		
+		
 		JPanel bottom = new JPanel();
 		bottom.add(bott);
 		

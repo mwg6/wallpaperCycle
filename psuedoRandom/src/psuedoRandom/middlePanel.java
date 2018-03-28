@@ -1,11 +1,15 @@
 package psuedoRandom;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,8 +21,8 @@ public class middlePanel extends JPanel{
 	File a = new File("c:/users/public/pictures/sample pictures");
 	//create the imgviewer we will be passing to
 	imgViewer midPanel = new imgViewer();
-	
-	
+	Image pickdImg;
+	int border = 0;
 	//attempt to format the gridlayout we wish to add
 	
 
@@ -33,13 +37,29 @@ public class middlePanel extends JPanel{
 		//within this list add to the JPanel the images
 		for(Image imgname:imgarray){
 			JLabel temp = new JLabel(new ImageIcon(imgname));
-			temp.setSize(1, 1);
+			
+			temp.addMouseListener(new MouseAdapter(){
+				public void mouseClicked(MouseEvent e){
+					if(border/2==0){
+					pickdImg = imgname;
+					temp.setBorder(BorderFactory.createMatteBorder(10,10,10,10,Color.black));
+					border++;
+					}
+					else{
+						pickdImg = null;
+						temp.setBorder(BorderFactory.createEmptyBorder());;
+						border--;
+					}
+					}
+			});
+			
 			display.add(temp);
 			
 		
 	}
+
 		System.out.println(midPanel.getFiles()/3);
-		wrap.setPreferredSize(new Dimension(1000,1000));
+		wrap.setPreferredSize(new Dimension(400,400));
 		
 		
 		add(wrap);
