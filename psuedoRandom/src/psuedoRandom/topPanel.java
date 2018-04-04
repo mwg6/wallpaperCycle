@@ -1,5 +1,7 @@
 package psuedoRandom;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -24,9 +26,15 @@ public class topPanel extends JPanel {
 		add(exit);
 	}
 	
-	public String getTime(){
+	public int getTime(){
 		
-		return time.getSelectedItem().toString();
+		return Integer.parseInt(time.getSelectedItem().toString());
 		
+	}
+	public void addExitButtonListener(ActionListener listen){
+		exit.addActionListener(listen);
+	}
+	public void addStartButtonListener(ActionListener listen){
+		start.addActionListener(listen);
 	}
 }
