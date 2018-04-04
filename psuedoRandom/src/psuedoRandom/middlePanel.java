@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -18,11 +19,13 @@ import javax.swing.JScrollPane;
 public class middlePanel extends JPanel{
 	
 	//give the path to look in. This will be passed to the imgviewer
-	File a = new File("c:/users/public/pictures/sample pictures");
+	String path = "c:/users/public/pictures/sample pictures";
+	File a = new File(path);
 	//create the imgviewer we will be passing to
 	imgViewer midPanel = new imgViewer();
 	Image pickdImg;
 	int border = 0;
+	int selectedImgInd;
 	//attempt to format the gridlayout we wish to add
 	
 
@@ -42,11 +45,14 @@ public class middlePanel extends JPanel{
 				public void mouseClicked(MouseEvent e){
 					if(border/2==0){
 					pickdImg = imgname;
+					System.out.println(midPanel.getImgNme(imgname));
+
 					temp.setBorder(BorderFactory.createMatteBorder(10,10,10,10,Color.black));
 					border++;
 					}
 					else{
 						pickdImg = null;
+						selectedImgInd = 0;
 						temp.setBorder(BorderFactory.createEmptyBorder());;
 						border--;
 					}
@@ -65,6 +71,15 @@ public class middlePanel extends JPanel{
 		add(wrap);
 	}
 	
+	public String getSelectedImageName(){
+		return midPanel.getImgNme(pickdImg);
+	}
+	public Image getSelectedImage(){
+		return pickdImg;
+	}
+	public String getSelectedImageFilePath(){
+		return path + midPanel.getImgNme(pickdImg);
+	}
 	
 	
 }

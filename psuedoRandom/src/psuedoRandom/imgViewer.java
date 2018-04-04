@@ -6,13 +6,17 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class imgViewer extends JPanel{
-
+	
+	Map theory = new HashMap();
+	Map revTheory = new HashMap();
 	List<Image> images = new ArrayList<Image>();
 	String[] extensions = new String[]{"jpg"};
 	int numFiles;
@@ -38,7 +42,6 @@ public class imgViewer extends JPanel{
 	public void getFiles(File folder){
 		
 		if(folder.isDirectory()){
-			System.out.println("Is directory");
 			numFiles =  folder.listFiles().length;
 			for(File f:folder.listFiles(filter)){
 				BufferedImage img = null;
@@ -46,6 +49,8 @@ public class imgViewer extends JPanel{
 					img = ImageIO.read(f);
 					System.out.println("in the viewer for loop");
 					images.add(img);
+					theory.put(f.getName(), img);
+					revTheory.put(img, f.getName());
 				}
 				catch(IOException e){
 					System.out.println("error");
@@ -62,14 +67,18 @@ public class imgViewer extends JPanel{
 	public List<Image> getImages(){
 		return images;
 	}
-	public Image getImg(int i){
-		return images.get(i);
+	public Image getImg(String name){
+		return (Image) theory.get(name);
 	}
-	public String getImgNme(int i){
-		return images.get(i).toString();
+	public String getImgNme(Image img){
+		return (String) revTheory.get(img);
 	}
 	public int getFiles(){
-		return numFiles;
+		return theory.size();
+	}
+	
+	public void addImg(){
+		
 	}
 
 }
