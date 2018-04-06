@@ -78,7 +78,7 @@ public class middlePanel extends JPanel{
 		return pickdImg;
 	}
 	public String getSelectedImageFilePath(){
-		return path + midPanel.getImgNme(pickdImg);
+		return path + "/"+ midPanel.getImgNme(pickdImg);
 	}
 	
 	
